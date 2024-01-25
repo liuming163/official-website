@@ -4,4 +4,4 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped lang="sass"></style>
