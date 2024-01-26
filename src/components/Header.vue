@@ -1,8 +1,11 @@
 <template>
+  <!-- 头部整体盒子 -->
   <div class="container">
+    <!-- 头部logo -->
     <div class="left">
       <img src="../assets/imgs/title.png" />
     </div>
+    <!-- 头部导航 -->
     <ul class="right">
       <li
         v-for="(nav, index) in navList"
