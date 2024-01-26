@@ -10,7 +10,7 @@
       <li
         v-for="(nav, index) in navList"
         :key="index"
-        :class="[index === navIndex ? 'active' : '']"
+        :class="[index == navIndex ? 'active' : '']"
         @click="navClick(index)"
       >
         <router-link :to="nav.path">{{ nav.name }}</router-link>
@@ -43,11 +43,14 @@ const navList = [
     name: "商务合作",
   },
 ];
-const navIndex = ref(0); // 设置选中的导航项
+const navIndex = ref(""); // 设置选中的导航项
+navIndex.value = sessionStorage.getItem("navIndex")
+  ? sessionStorage.getItem("navIndex")
+  : 0; // 从sessionStorage中获取选中的导航项，如果没有则默认为0
 // 导航项的点击事件
 const navClick = (index) => {
   navIndex.value = index;
-  console.log(navIndex.value);
+  sessionStorage.setItem("navIndex", index); // 将选中的导航项保存到sessionStorage中
 };
 </script>
 
