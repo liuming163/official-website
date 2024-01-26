@@ -83,11 +83,33 @@ const navClick = (index) => {
 
     li > a {
       padding: 15px 0;
-
-      &:hover {
-        border-bottom: 2px solid #3384fb;
-      }
     }
+
+    li {
+      position: relative;
+    }
+
+    li::after {
+      content: "";
+      display: block;
+      /*开始时候下划线的宽度为100%*/
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: -15px;
+      background: #3384fb;
+      transition: all 0.3s ease-in-out;
+      /*通过transform的缩放scale来让初始时x轴为0*/
+      transform: scale3d(0, 1, 1);
+      /*将坐标原点移到元素的中间，以原点为中心进行缩放*/
+      transform-origin: 50% 0;
+    }
+
+    li:hover::after {
+      /*鼠标经过时还原到正常比例*/
+      transform: scale3d(1, 1, 1);
+    }
+
     .active > a {
       color: #3384fb;
       padding: 15px 0;
