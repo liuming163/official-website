@@ -1,6 +1,6 @@
 <template>
   <!-- 头部整体盒子 -->
-  <div class="container">
+  <div class="container-header">
     <!-- 头部logo -->
     <div class="left">
       <img src="../assets/imgs/title.png" />
@@ -55,7 +55,7 @@ const navClick = (index) => {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.container-header {
   display: flex;
   justify-content: space-between;
   height: 110px;
