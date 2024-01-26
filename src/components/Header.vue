@@ -4,7 +4,12 @@
       <img src="../assets/imgs/title.png" />
     </div>
     <ul class="right">
-      <li v-for="nav in navList">
+      <li
+        v-for="(nav, index) in navList"
+        :key="index"
+        :class="[index === navIndex ? 'active' : '']"
+        @click="navClick(index)"
+      >
         <router-link :to="nav.path">{{ nav.name }}</router-link>
       </li>
     </ul>
@@ -12,6 +17,7 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 const navList = [
   {
     path: "/home",
@@ -34,6 +40,12 @@ const navList = [
     name: "商务合作",
   },
 ];
+const navIndex = ref(0); // 设置选中的导航项
+// 导航项的点击事件
+const navClick = (index) => {
+  navIndex.value = index;
+  console.log(navIndex.value);
+};
 </script>
 
 <style lang="scss" scoped>
@@ -69,6 +81,11 @@ const navList = [
       &:hover {
         border-bottom: 2px solid #3384fb;
       }
+    }
+    .active > a {
+      color: #3384fb;
+      padding: 15px 0;
+      border-bottom: 2px solid #3384fb;
     }
   }
 }
