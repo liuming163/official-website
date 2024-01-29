@@ -8,4 +8,6 @@ import Footer from "./components/Footer.vue";
   <!-- 路由出口 -->
   <router-view></router-view>
   <Footer></Footer>
+  <!-- 回到顶部 -->
+  <el-backtop :right="100" :bottom="100" />
 </template>
