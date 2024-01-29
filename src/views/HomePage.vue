@@ -22,6 +22,13 @@
         <img :src="item.img" alt="版权检测图" />
       </div>
     </div>
+    <!-- 合作伙伴区域 -->
+    <p class="partners-title">合作伙伴</p>
+    <div class="partners">
+      <div v-for="item in partnersList" :key="item.id" class="partners-item">
+        <img :src="item.img" alt="合作伙伴">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -79,6 +86,50 @@ const copyRightList = [
     site: "right",
   },
 ];
+// 合作伙伴区域
+import p1 from '../assets/imgs/partners1.jpg'
+import p2 from '../assets/imgs/partners2.jpg'
+import p3 from '../assets/imgs/partners3.jpg'
+import p4 from '../assets/imgs/partners4.png'
+import p5 from '../assets/imgs/partners5.png'
+import p6 from '../assets/imgs/partners6.png'
+import p7 from '../assets/imgs/partners7.png'
+import p8 from '../assets/imgs/partners8.png'
+
+const partnersList = [
+  {
+    id: 1,
+    img: p1
+  },
+  {
+    id: 2,
+    img: p2
+  },
+  {
+    id: 3,
+    img: p3
+  },
+  {
+    id: 4,
+    img: p4
+  },
+  {
+    id: 5,
+    img: p5
+  },
+  {
+    id: 6,
+    img: p6
+  },
+  {
+    id: 7,
+    img: p7
+  },
+  {
+    id: 8,
+    img: p8
+  }
+]
 </script>
 
 <style scoped lang="scss">
@@ -140,6 +191,37 @@ const copyRightList = [
       flex: 1;
       height: 100%;
       text-align: center;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+
+  // 合作伙伴区域
+  .partners-title {
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    margin: 20px 0 40px 0;
+  }
+  .partners {
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 20%;
+    margin-bottom: 50px;
+
+    .partners-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc((100% - 20px) / 4);
+      height: 120px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
 
       img {
         height: 100%;
