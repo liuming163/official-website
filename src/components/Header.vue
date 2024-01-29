@@ -61,7 +61,6 @@ const navClick = (index) => {
   height: 110px;
   margin: 0 100px 0 20px;
   padding: 0 10px;
-  background-color: #ccc;
 
   .left {
     width: 300px;
