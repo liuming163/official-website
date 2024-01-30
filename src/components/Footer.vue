@@ -22,7 +22,7 @@
   height: 280px;
   color: #fff;
   font-size: 16px;
-  background-color: #282828;
+  background-color: #3e3e3e;
 
   .left {
     h2 {
