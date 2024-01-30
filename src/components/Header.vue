@@ -97,7 +97,7 @@ const navClick = (index) => {
       position: absolute;
       bottom: -15px;
       background: #3384fb;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.4s ease-in-out;
       /*通过transform的缩放scale来让初始时x轴为0*/
       transform: scale3d(0, 1, 1);
       /*将坐标原点移到元素的中间，以原点为中心进行缩放*/
