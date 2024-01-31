@@ -119,11 +119,13 @@ const onSubmit = () => {
       }
 
       .el-input {
+        width: 80%;
         font-size: 20px;
         height: 60px;
       }
 
       :deep(.el-textarea__inner) {
+        width: 80%;
         font-size: 20px;
       }
 
