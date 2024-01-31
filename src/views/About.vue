@@ -1,41 +1,32 @@
 <template>
   <div class="about">
     <!-- 设置放置地图的ref -->
-    <div class="mapp" ref="baiduRef"></div>
+    <div id="map" class="mapp"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-// 地图嵌入
-const baiduRef = ref(null);
-const map = ref(null);
-const point = ref(null);
-const marker = ref(null);
-
-const initMap = (lng = 116.325194, lat = 39.717693) => {
-  map.value = new BMap.Map(baiduRef.value); //新建一个map地图实例
-  point.value = new BMap.Point(lng, lat); //创建点
-  //   console.log(point.value, 858585);
-  marker.value = new BMap.Marker(point.value); //做标记
-
-  map.value.centerAndZoom(point.value, 15);
-  map.value.enableScrollWheelZoom(true); //滚轮缩放
-  map.value.addOverlay(marker.value); //在地图上显示标记点
-  //   样式id，设置样式的自定义
-  map.value.setMapStyleV2({
-    styleId: "1fb853a740649182c004c7f05e3f1ac7",
-  });
-
-  //   点击标注监听事件
-  marker.value.addEventListener("click", function (e) {
-    alert("您点击了标注");
-    console.log(e, 888888888);
-  });
-};
-
+import { onMounted } from "vue";
+// 百度地图BMap构造函数
+let BMap = null;
 onMounted(() => {
-  initMap();
+  BMap = window.BMap;
+  var map = new BMap.Map("map"); // 创建地图实例
+  var point = new BMap.Point(116.325194, 39.717693); // 创建点坐标
+  map.centerAndZoom(point, 18); // 初始化地图，设置中心点坐标和地图级别
+  map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+  var marker = new BMap.Marker(point); // 创建标注
+  map.addOverlay(marker); // 将标注添加到地图中
+  var opts = {
+    width: 100, // 信息窗口宽度
+    height: 70, // 信息窗口高度
+    title: "北京和晞科技有限公司", // 信息窗口标题
+  };
+  var infoWindow = new BMap.InfoWindow(
+    `<span>地址: 北京市大兴区首开万科中心1313<span>`,
+    opts
+  ); // 创建信息窗口对象
+  map.openInfoWindow(infoWindow, map.getCenter()); // 打开信息窗口
 });
 </script>
 
