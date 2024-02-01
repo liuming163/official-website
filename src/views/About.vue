@@ -76,6 +76,7 @@ onMounted(() => {
       font-size: 18px;
       line-height: 40px;
       p {
+        text-indent: 2em;
         margin-bottom: 20px;
       }
     }
