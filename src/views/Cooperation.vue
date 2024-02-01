@@ -132,7 +132,7 @@ const onSubmit = () => {
       .el-button {
         font-size: 20px;
         padding: 20px 100px;
-        margin-left: 35%;
+        margin-left: 20%;
       }
     }
   }
